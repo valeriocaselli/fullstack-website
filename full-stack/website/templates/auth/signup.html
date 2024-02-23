@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block title %}
+    Registrati
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='auth/signup.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="title typing"></div>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="row double-input">
+                {{ form.first_name(placeholder='Nome') }}
+                {{ form.last_name(placeholder='Cognome') }}
+            </div>
+            {% if form.first_name.errors or form.last_name.errors %}
+                <div class="error-alert">{{ form.first_name.errors[0] }}</div>
+            {% endif %}
+            <div class="row">
+                {{ form.email(placeholder='Indirizzo e-mail') }}
+            </div>
+            {% if form.email.errors %}
+                <div class="error-alert">{{ form.email.errors[0] }}</div>
+            {% endif %}
+            <div class="row eye">
+                {{ form.password(placeholder='Password', class='password-input') }}
+                <i class="fa-solid fa-eye show-password"></i>
+            </div>
+            {% if form.password.errors %}
+                <div class="error-alert">{{ form.password.errors[0] }}</div>
+            {% endif %}
+            <div class="row eye">
+                {{ form.confirm_password(placeholder='Conferma password', class='password-input') }}
+                <i class="fa-solid fa-eye show-password"></i>
+            </div>
+            {% if form.confirm_password.errors %}
+                <div class="error-alert">{{ form.confirm_password.errors[0] }}</div>
+            {% endif %}
+            <div class="row">
+                {{ form.submit(class='button') }}
+            </div>
+            <div class="row reminder">
+                Hai già un account? Accedi <a href="{{url_for('auth.login')}}">qui</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+{% block script %}
+    <script src="{{url_for('static', filename='auth/signup.js')}}"></script>
+{% endblock script %}

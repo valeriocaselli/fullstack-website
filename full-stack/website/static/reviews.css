@@ -1,0 +1,81 @@
+.container {
+    width: 100%;
+    height: 100vh;
+}
+
+.reviews-container {
+    width: 100%;
+    height: 100%;
+    padding: 3rem 5rem;
+}
+
+.reviews-container > .span {
+    width: 70%;
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.span > .filter > #filter-btn {
+    padding: 0.7rem;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 0.1rem solid rgb(98, 166, 255);
+    font-weight: 600;
+    color: rgb(98, 166, 255);
+    letter-spacing: 0.2rem;
+}
+
+.filter > #filter-btn > a {
+    color: rgb(98, 166, 255);
+    text-decoration: none;
+} 
+
+.filter > #filter-btn:hover {
+    background: rgb(98, 166, 255);
+    border: 0.1rem solid rgb(98, 166, 255);
+}
+
+#filter-btn:hover > a {
+    color: white
+}
+
+.reviews-container > .review {
+    width: 70%;
+    padding: 1rem;
+    background: white;
+    margin-bottom: 1rem;
+}
+
+.review > .top-review,
+.review > .description {
+    width: 100%;
+}
+
+.review > .top-review {
+    display: flex;
+    flex-direction: row;
+    padding: 0.3rem;
+}
+
+.top-review > .value {
+    margin-right: 2rem;
+}
+
+.review > .description {
+    font-size: 1.2rem;
+    padding: 0.3rem;
+}
+
+.value > .gold {
+    color: #f2c300
+}
+
+.value > .disabled {
+    color: rgb(211, 211, 211)
+}
+

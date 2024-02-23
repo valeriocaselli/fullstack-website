@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+    404 - Not Found
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='errors/404.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="error">
+        <div class="black">4</div>
+        <div class="blue">0</div>
+        <div class="black">4</div>
+    </div>
+    <div class="error-message">Pagina non trovata! Torna alla <a href="{{url_for('views.homepage')}}">home</a>
+    </div>
+{% endblock content %}

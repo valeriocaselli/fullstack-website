@@ -1,0 +1,315 @@
+{% extends 'base.html' %}
+{% block title %}
+    Homepage
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='homepage.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="navbar">
+        <div class="logo">
+            EasyEats
+        </div>
+        <div class="navbar-items">
+            <div class="item">
+                Chi siamo
+            </div>
+            <div class="item">
+                Servizi
+            </div>
+            <div class="item">
+                Staff
+            </div>
+            <div class="item">
+                Contatti
+            </div>
+        </div>
+        <div class="log-in">
+            {% if user.is_anonymous %}
+                <button id="log-in-btn"><a href="{{url_for('auth.login')}}">Accedi</a></button>
+            {% elif user.is_authenticated %}
+                <button id="log-out-btn"><a href="{{url_for('auth.logout')}}">Esci</a></button>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- First Section -->
+    <section id="first" class="scroll-to-right">
+        <div class="animated scrolling-rev">
+            <div class="container left">
+                <div class="title">Gusto Autentico, Atmosfera Unica e Accogliente.</div>
+                <div class="cta-container">
+                    <button>
+                        <a href="">Scopri il nostro menù</a>
+                    </button>
+                    <button id="reverse">
+                        <a href="{{url_for('views.reviews')}}">Cosa pensano di noi</a>
+                    </button>
+                </div>
+            </div>
+            <div class="container right">
+                {% for review in reviews[:4] %}
+                    <div class="review">
+                        <div class="value">
+                            {% for i in range(review.value) %}
+                                <i class="fa-solid fa-star"></i>
+                            {% endfor %}
+                        </div>
+                        <div class="description">
+                            {{ review.description }}
+                        </div>
+                        <div class="author">
+                            {{ review.author.email }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!-- <h1 class="animated">Sezione Chi Siamo</h1> -->
+    </section>
+
+    <!-- Second Section -->
+    <section id="second" class="scroll-to-left">
+        <div class="container animated">
+            <div class="service">
+                <div class="service-image">
+                    <i class="fa-regular fa-calendar"></i>
+                </div>
+                <div class="service-title">
+                    Prenotazioni online
+                </div>
+                <div class="service-description">
+                    Prenota ora e riserva il tuo posto nel nostro ristorante. 
+                    Approfitta della comodità e della sicurezza del nostro sistema 
+                    di prenotazione online.
+                </div>
+                <div class="service-cta">
+                    {% if user.is_anonymous %}
+                        <button><a href="{{url_for('auth.login')}}">Scopri di più</a></button>
+                    {% elif user.is_authenticated %}
+                        {% if not user.confirmed %}
+                            <button><a href="{{url_for('auth.activate')}}">Scopri di più</a></button>
+                        {% else %}
+                            <button><a href="{{url_for('user.bookings')}}">Scopri di più</a></button>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-image">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div class="service-title">
+                    Servizio a domicilio
+                </div>
+                <div class="service-description">
+                    Ordina i tuoi piatti preferiti, ci pensiamo noi a portarteli.
+                    Goditi il gusto del nostro ristorante comodamente da casa tua. 
+                    Cosa aspetti? Ordina ora!
+                </div>
+                <div class="service-cta">
+                    <button>Scopri di più</button>
+                </div>
+            </div>
+            <div class="service">
+                <div class="service-image">
+                    <i class="fa-solid fa-person-digging"></i>
+                </div>
+                <div class="service-title">
+                    Lavora con noi
+                </div>
+                <div class="service-description">
+                    Siamo alla continua ricerca di personale da inserire.
+                    Se ritieni di essere la persona giusta, compila la form 
+                    di candidatura dedicata. Buona fortuna!
+                </div>
+                <div class="service-cta">
+                    <button id="to-work-form">Scopri di più</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Section -->
+    <section id="third" class="scroll-to-right">
+        <div class="animated staff-rev">
+            <!-- Fake datas created with Chat GPT -->
+            <div class="staff-container">
+                <div class="staff-card animation-one" style="grid-column: 1/2; grid-row: 2/4">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card animation-four-down" style="grid-column: 2/3; grid-row:1/3">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card animation-three-up" style="grid-column: 2/3; grid-row: 3/5">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card animation-three-down" style="grid-column: 3/4; grid-row: 1/3">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card animation-four-up" style="grid-column: 3/4; grid-row: 3/5">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card" style="grid-column: 1/2; grid-row: 1/3">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+                <div class="staff-card animation-two" style="grid-column: 4/5; grid-row: 2/4">
+                    <div class="staff-name">
+                        Mario Rossi
+                    </div>
+                    <div class="staff-role">
+                        Chef
+                    </div>
+                    <div class="staff-icon">
+                        <i class="fa-solid fa-utensils"></i>
+                    </div>
+                    <div class="staff-description">
+                        Esperto chef con una passione per la cucina italiana tradizionale. Creativo e appassionato di nuove idee culinarie.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <h1 class="animated">Sezione Prenota</h1> -->
+    </section>
+
+    <!-- Fourth Section -->
+    <section id="fourth" class="scroll-to-left">
+        <div class="container animated typing">
+            <div class="box contact">
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    Acquamarina (RM), Via del Tramonto, 22/A
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    +0551 02 123456789
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa-brands fa-facebook"></i>
+                    </div>
+                    easyeats
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                    easyeats
+                </div>
+                <div class="row">
+                    <div class="icon">
+                        <i class="fa-brands fa-twitter"></i>
+                    </div>
+                    easyeats
+                </div>
+            </div>
+            <div class="box form-work-with-us">
+                <div class="fast-candidate">
+                    <span id="typing-effect">
+                        <!-- Lavora con noi -->
+                    </span>
+                </div>
+                <form action="">
+                    <div class="row">
+                        <input type="text" placeholder="Nome">
+                        <input type="text" placeholder="Cognome">
+                    </div>
+                    <div class="row one-input">
+                        <input type="email" placeholder="Indirizzo e-mail">
+                    </div>
+                    <div class="row one-input">
+                        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Cellulare">
+                    </div>
+                    <div class="row candidate">
+                        <button>Candidatura veloce</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Confirm account reminder -->
+    {% if user.is_authenticated %}
+        {% if not user.confirmed %}
+        <div class="confirm-reminder">
+            <a href="{{url_for('auth.activate')}}">Conferma il tuo account</a>
+            {% if token %}
+                {{ token }}
+            {% endif %}
+        </div>
+        {% endif %}
+    {% endif %}
+{% endblock content %}
+{% block script %}
+    <script src="{{url_for('static', filename='homepage.js')}}"></script>
+{% endblock script %}

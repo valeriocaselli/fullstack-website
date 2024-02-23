@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Admin - Login{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='admin/admin_login.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="title typing"></div>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                {{ form.email(placeholder='Indirizzo e-mail') }}
+            </div>
+            <div class="row">
+                {{ form.password(placeholder='Password') }}
+            </div>
+            <div class="row">
+                {{ form.submit(class='button') }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

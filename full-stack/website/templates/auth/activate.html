@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}
+    Conferma account
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='auth/activate.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="title">CONFERMA IL TUO ACCOUNT</div>
+        <span class="text">Clicca <a href="{{confirm_url}}">qui</a> per confermare il tuo account</span>
+    </div>
+{% endblock content %}

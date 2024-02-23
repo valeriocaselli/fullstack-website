@@ -1,0 +1,558 @@
+/* Navbar */
+
+.navbar {
+    width: 100%;
+    position: fixed;
+    height: 10vh;
+    background: rgba(54, 54, 54, 1);
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0rem 6rem;
+    z-index: 1000;
+}
+
+.navbar > .logo {
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navbar > .navbar-items {
+    width: 28%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-items > .item {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.navbar > .log-in > #log-in-btn,
+.navbar > .log-in > #log-out-btn {
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+    background: rgb(120, 176, 250);
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+
+#log-in-btn > a,
+#log-out-btn > a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Sections */
+
+section {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 6rem;
+}
+
+.scroll-to-right > .animated {
+    opacity: 0;
+    transform: translateX(-40rem);
+    transition: all 0.7s ease;
+}
+
+.scroll-to-left > .animated {
+    opacity: 0;
+    transform: translateX(40rem);
+    transition: all 0.7s ease;
+}
+
+.scroll-to-right > .scrolling {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.scroll-to-left > .scrolling {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* First Section */
+
+#first {
+    position: absolute;
+    top: 10vh;
+    text-align: center;
+}
+
+#first > .animated {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+#first > .animated > .container {
+    width: 50%;
+    height: 100%;
+    padding: 3rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container > .title {
+    width: 65%;
+    font-size: 3rem;
+    font-weight: 600;
+    text-align: justify;
+    margin: 2rem auto;
+}
+
+.container > .cta-container {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.cta-container > button {
+    width: 48%;
+    padding: 0.7rem;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 0.1rem solid rgb(98, 166, 255);
+    font-weight: 600;
+    color: rgb(98, 166, 255);
+    letter-spacing: 0.2rem;
+}
+
+.cta-container > button > a {
+    color: rgb(98, 166, 255);
+    text-decoration: none;
+}
+
+.cta-container > button:hover {
+    background: rgb(120, 176, 250);
+    border: none;
+}
+
+.cta-container > button:hover > a {
+    color: white;
+}
+
+.cta-container > button#reverse {
+    background: rgb(120, 176, 250);
+    color: white
+}
+
+.cta-container > button#reverse > a {
+    color: white;
+    text-decoration:none;
+}
+
+.cta-container > button#reverse:hover {
+    background: none;
+    border: 0.1rem solid rgb(98, 166, 255);
+    color: rgb(120, 176, 250)
+}
+
+.cta-container > button#reverse:hover > a {
+    color: rgb(98, 166, 255)
+}
+
+#first > .animated > .right {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.right > .review {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    flex-direction: column;
+    border-radius: 0.75rem;
+    transition: all 0.7s ease;
+    opacity: 0;
+}
+
+.right > .review.to-left {
+    transform: translateX(+100%);
+}
+
+.right > .review.to-right {
+    transform: translateX(-100%);
+}
+
+.right > .review.scrolled {
+    opacity: 1;
+    transform: translateX(0%);
+}
+
+.review > .value,
+.review > .description,
+.review > .author {
+    width: 100%;
+    padding: 0.2rem 2rem;
+}
+
+.review > .value {
+    display: flex;
+    flex-direction: row;
+    gap: 0.3rem;
+    height: 30%;
+    align-items: center;
+}
+
+.value > i {
+    color: #f2c300
+}
+
+.review > .description {
+    text-align: left;
+    font-size: 1.1rem;
+    height: 50%;
+}
+
+.review > .author {
+    color: gray;
+    font-size: 0.75rem;
+    text-align: left;
+    height: 20%;
+    display: flex;
+    align-items: center;
+}
+
+/* Second Section */
+
+#second {
+    position: absolute;
+    top: 110vh;
+    text-align: center;
+}
+
+#second > .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+    gap: 7rem
+}
+
+.container > .service {
+    width: 20%;
+    height: 80%;
+    border-radius: 1rem;
+    padding: 2rem 1rem;
+}
+
+.service > .service-image {
+    width: 100%;
+    height: 15%;
+    font-size: 2.5rem;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-image > i {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.service > .service-title {
+    width: 100%;
+    height: 15%;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.service > .service-description {
+    height: 40%;
+    display: flex;
+    text-align: justify;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.service > .service-cta {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-cta > button {
+    width: 100%;
+    padding: 0.7rem;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 0.1rem solid rgb(98, 166, 255);
+    font-weight: 600;
+    color: rgb(98, 166, 255);
+    letter-spacing: 0.2rem;
+}
+
+.service-cta > button > a {
+    color: rgb(98, 166, 255);
+    text-decoration: none;
+}
+
+.service-cta > button:hover > a {
+    color: white
+}
+
+.service-cta > button:hover {
+    background: rgb(120, 176, 250);
+    border: none;
+    color: white;
+}
+
+
+/* Third Section */
+
+#third {
+    position: absolute;
+    top: 210vh;
+    text-align: center;
+}
+
+#third > .animated {
+    width: 100%;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+#third > .animated > .staff-container {
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    overflow-y: hidden;
+}
+
+.staff-container > .staff-card {
+    padding: 1rem;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.75rem;
+
+    transition: all 0.7s ease;
+    opacity: 0
+}
+
+.staff-card > .staff-name {
+    width: calc(100% - 2rem );
+    height: 20%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    color: black;
+    position: absolute;
+    z-index: 1000;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.staff-card > .staff-role {
+    width: calc(100% - 2rem);
+    top: calc(20% + 1rem);
+    height: 10%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+    font-weight: 600;
+    justify-content: center;
+}
+
+.staff-card > .staff-icon {
+    width: calc(100% - 2rem);
+    height: 15%;
+    top: calc(30% + 1rem);
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 1000;
+}
+
+.staff-card > .staff-description {
+    width: calc(100% - 2rem);
+    height: 45%;
+    top: calc(45% + 1rem);
+    position: absolute;
+    z-index: 1000;
+    display: flex;
+    text-align: justify;
+    align-items: center;
+}
+
+.staff-container > .animation-one {
+    transform: translateX(-100%);
+}
+
+.staff-container > .animation-two {
+    transform: translateX(+100%);
+}
+
+.staff-container > .animation-three-up,
+.staff-container > .animation-four-up
+{
+    transform: translateY(+100%);
+}
+
+.staff-container > .animation-three-down,
+.staff-container > .animation-four-down
+{
+    transform: translateY(-100%);
+}
+
+.staff-container > .scrolled {
+    transform: translate(0rem);
+    opacity: 1;
+}
+
+
+/* Fourth Section */
+
+#fourth {
+    position: absolute;
+    top: 310vh;
+    text-align: center;
+    height: 60vh;
+}
+
+#fourth > .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#fourth > .container > .box {
+    width: 50%;
+    height: 100%;
+}
+
+/* Contact block */
+
+.container > .box.contact {
+    padding: 5rem 3rem;
+}
+
+.box.contact > .row {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    overflow-y: hidden;
+    font-size: 1.1rem;
+}
+
+.row > .icon {
+    width: 20%;
+    float: left;
+    overflow-y: hidden;
+}
+
+/* Form block for job offers */
+
+.container > .form-work-with-us {
+    padding: 0rem 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-work-with-us > .fast-candidate {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 2.2rem;
+    letter-spacing: 0.4rem;
+    font-weight: 600;
+}
+
+.form-work-with-us > form {
+    width: 75%;
+    height: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form > .row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.row > input {
+    width: 48%;
+    padding: 0.4rem;
+    outline: none;
+    background: none;
+    font-size: 1.1rem;
+    border: 0.1rem solid rgb(165, 165, 165)
+}
+
+.row.one-input > input {
+    width: 100%;
+}
+
+.row.candidate > button {
+    width: 100%;
+    padding: 0.7rem;
+    background: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    border: 0.1rem solid rgb(98, 166, 255);
+    font-weight: 600;
+    color: rgb(98, 166, 255);
+    letter-spacing: 0.2rem;
+}
+
+.row.candidate > button:hover {
+    background: rgb(120, 176, 250);
+    border: none;
+    color: white;
+}
+
+/* Confirm account reminder */
+.confirm-reminder {
+    position: fixed;
+    top: 10vh;
+    left: 0rem;
+    background-color: rgb(228, 228, 228);
+    padding: 0.5rem;
+    border-radius: 0rem 0.75rem 0.75rem 0rem;
+}

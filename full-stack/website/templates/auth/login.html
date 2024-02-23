@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}
+    Accedi
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='auth/login.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="title typing"></div>
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="row">
+                {{ form.email(placeholder='Indirizzo e-mail') }}
+            </div>
+            <div class="row">
+                {{ form.password(placeholder='Password') }}
+            </div>
+            <div class="row">
+                {{ form.submit(class='button') }}
+            </div>
+            <div class="row reminder">
+                Non hai un account? Registrati <a href="{{url_for('auth.signup')}}">qui</a>
+            </div>
+        </form>
+
+        <div class="admin-log-in">
+            Vuoi accedere come amdin? Clicca <a href="{{url_for('admin.admin_login')}}">qui.</a>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="flash error">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+{% endblock content %}
+{% block script %}
+    <script src="{{url_for('static', filename='auth/login.js')}}"></script>
+{% endblock script %}

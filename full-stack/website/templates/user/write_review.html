@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block title %}
+    Lascia una recensione
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='user/write_review.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="title">Lascia una recensione</div>
+        <div class="form-container">
+            <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class="rating">
+                {{ form.value.label() }}
+                {{ form.value() }}
+            </div>
+            <div class="description">
+                {{ form.description(placeholder='Aggiungi la tua descrizione...', class='description-content') }}
+                <div class="letters-counter">
+                    0/100
+                </div>
+            </div>
+            <div class="submit">
+                {{ form.submit(class='button') }}
+            </div>
+        </form>
+        </div>
+    </div>
+{% endblock content %}
+{% block script %}
+    <script src="{{url_for('static', filename='user/write_review.js')}}"></script>
+{% endblock script %}

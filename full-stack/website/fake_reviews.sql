@@ -1,0 +1,14 @@
+-- Adding reviews to the database 
+
+-- INSERT INTO review (value, description, user_id)
+-- VALUES
+-- (5, 'Cibo delizioso e servizio impeccabile! Tornerò sicuramente!', 1),
+-- (5, 'Atmosfera accogliente e piatti gustosi. Esperienza indimenticabile.', 2),
+-- (5, 'Piatti creativi e presentazione impeccabile. Merita cinque stelle!', 3),
+-- (5, 'Ristorante fantastico! Ho adorato ogni boccone. Da provare assolutamente!', 4),
+-- (3, 'Niente di eccezionale, ma nemmeno del tutto deludente. Esperienza media.', 5),
+-- (3, 'Servizio accettabile e cibo discreto. Nulla di cui lamentarsi, ma neanche di cui entusiasmarsi.', 6),
+-- (1, 'Pessima esperienza culinaria. Non consigliato.', 7),
+-- (2, 'Cibo mediocre e prezzi esagerati. Non vale la pena.', 8),
+-- (4, 'Cibo delizioso e atmosfera piacevole. Il servizio era buono ma un po lento. Nel complesso, un buon posto dove cenare.', 9),
+-- (4, 'Ottima cena, ma con qualche piccolo dettaglio migliorabile. Nel complesso, una piacevole esperienza.', 10)

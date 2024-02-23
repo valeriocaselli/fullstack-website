@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    Recensioni
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='reviews.css')}}">
+{% endblock style %}
+{% block content %}
+    <div class="container">
+        <div class="reviews-container">
+            <div class="span">
+                Last Reviews
+                <div class="filter">
+                    {% if user.is_authenticated %}
+                        {% if user.confirmed %}
+                            <button id="filter-btn"><a href="{{url_for('user.write_review')}}">Lascia una recensione</a></button>
+                        {% else %}
+                            <button id="filter-btn"><a href="{{url_for('auth.activate')}}">Lascia una recensione</a></button>
+                        {% endif %}
+                    {% else %}
+                        <button id="filter-btn"><a href="{{url_for('auth.login')}}">Lascia una recensione</a></button>
+                    {% endif %}
+                </div>
+            </div>
+            {% for review in reviews[:30] %}
+                <div class="review">
+                    <div class="top-review">
+                        <div class="value">
+                            {% for i in range(review.value)  %}
+                                <i class="fa-solid fa-star gold"></i>
+                            {% endfor %}
+                            {% for i in range(5 - review.value)  %}
+                                <i class="fa-solid fa-star disabled"></i>
+                            {% endfor %}
+                        </div>
+                        <div class="author">{{ review.author.email }}</div>
+                    </div>
+                    <div class="description">{{ review.description }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}
